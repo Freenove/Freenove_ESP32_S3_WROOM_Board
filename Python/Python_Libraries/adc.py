@@ -1,0 +1,30 @@
+from machine import ADC,Pin
+import time
+
+adc0=ADC(Pin(1))
+adc1=ADC(Pin(2))
+adc2=ADC(Pin(3))
+adc3=ADC(Pin(4))
+adc4=ADC(Pin(5))
+adc5=ADC(Pin(6))
+adc0.atten(ADC.ATTN_11DB)
+adc1.atten(ADC.ATTN_11DB)
+adc2.atten(ADC.ATTN_11DB)
+adc3.atten(ADC.ATTN_11DB)
+adc4.atten(ADC.ATTN_11DB)
+adc5.atten(ADC.ATTN_11DB)
+adc0.width(ADC.WIDTH_12BIT)
+adc1.width(ADC.WIDTH_12BIT)
+adc2.width(ADC.WIDTH_12BIT)
+adc3.width(ADC.WIDTH_12BIT)
+adc4.width(ADC.WIDTH_12BIT)
+adc5.width(ADC.WIDTH_12BIT)
+
+while True:
+  print("adc0=",adc0.read())
+  print("adc1=",adc1.read())
+  print("adc2=",adc2.read())
+  print("adc3=",adc3.read())
+  print("adc4=",adc4.read())
+  print("adc5=",adc5.read())
+  time.sleep(0.1)
