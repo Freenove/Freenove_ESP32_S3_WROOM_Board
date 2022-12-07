@@ -4,7 +4,7 @@
 * Auther      : www.freenove.com
 * Modification: 2022/10/19
 **********************************************************************/
-#define LED_BUILTIN  32
+#define LED_BUILTIN  2
 // the setup function runs once when you press reset or power the board
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
