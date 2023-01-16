@@ -1,4 +1,4 @@
-## Freenove_ESP32_S3_WROVER_Board
+## Freenove_ESP32_S3_WROOM_Board
 
 A kit with a Freenove® ESP32-S3 Board for learning programming and electronics.
 
