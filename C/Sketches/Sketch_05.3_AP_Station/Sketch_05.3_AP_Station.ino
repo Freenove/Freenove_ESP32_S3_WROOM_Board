@@ -6,8 +6,8 @@
 **********************************************************************/
 #include <WiFi.h>
  
-const char *ssid_Router     =  "FYI_2.4G";  //Enter the router name
-const char *password_Router =  "freenove208";  //Enter the router password
+const char *ssid_Router     =  "********";  //Enter the router name
+const char *password_Router =  "********";  //Enter the router password
 const char *ssid_AP         =  "WiFi_Name"; //Enter the router name
 const char *password_AP     =  "12345678";  //Enter the router password
 
