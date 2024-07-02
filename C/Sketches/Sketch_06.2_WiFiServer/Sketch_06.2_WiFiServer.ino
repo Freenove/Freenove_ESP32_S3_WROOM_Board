@@ -3,7 +3,7 @@
   Description : Use ESP32's WiFi server feature to wait for other WiFi devices to connect.
                 And communicate with them once a connection has been established.
   Auther      : www.freenove.com
-  Modification: 2022/10/31
+  Modification: 2024/07/01
 **********************************************************************/
 #include <WiFi.h>
 
@@ -30,12 +30,11 @@ void setup()
     Serial.println(WiFi.localIP());			
     Serial.printf("IP port: %d\n",port);			
     server.begin(port);								
-    WiFi.setAutoConnect(true);
     WiFi.setAutoReconnect(true);
 }
 
 void loop(){
- WiFiClient client = server.available();            // listen for incoming clients
+ WiFiClient client = server.accept();               // listen for incoming clients
   if (client) {                                     // if you get a client,
     Serial.println("Client connected.");
     while (client.connected()) {                    // loop while the client's connected

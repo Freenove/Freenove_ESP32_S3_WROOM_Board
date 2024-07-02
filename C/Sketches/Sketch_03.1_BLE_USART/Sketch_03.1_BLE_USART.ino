@@ -2,13 +2,12 @@
   Filename    : BLE_USART
   Description : Esp32 communicates with the phone by BLE and sends incoming data via a serial port
   Auther      : www.freenove.com
-  Modification: 2022/10/26
+  Modification: 2024/07/01
 **********************************************************************/
 #include "BLEDevice.h"
 #include "BLEServer.h"
 #include "BLEUtils.h"
 #include "BLE2902.h"
-#include "String.h"
  
 BLECharacteristic *pCharacteristic;
 bool deviceConnected = false;
@@ -31,7 +30,7 @@ class MyServerCallbacks: public BLEServerCallbacks {
  
 class MyCallbacks: public BLECharacteristicCallbacks {
     void onWrite(BLECharacteristic *pCharacteristic) {
-      std::string rxValue = pCharacteristic->getValue();
+      String rxValue = pCharacteristic->getValue();
       if (rxValue.length() > 0) {
         rxload="";
         for (int i = 0; i < rxValue.length(); i++){
