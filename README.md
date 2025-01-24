@@ -1,86 +1,33 @@
-## Freenove_ESP32_S3_WROOM_Board
+# Freenove Tutorial Online
 
-A kit with a Freenove® ESP32-S3 Board for learning programming and electronics.
+<img src="readme\freenove-logo.png" alt="freenove-logo" width='100%' align="left"/>
 
-<img src='Board.jpg' width='70%'/>
 
-ESP32-S3 chip is manufactured by Espressif®.
->Espressif® is a trademark of Espressif Systems (Shanghai) Co.Ltd (https://www.espressif.com/).
 
-Freenove ESP32-S3 Board can be uploaded code using Arduino® IDE.
-> Arduino® is a trademark of Arduino LLC (https://www.arduino.cc/).
+## <img src="readme\start.png" alt="start" width='5%' align="left"/> **Quick Start**
 
-<img src='ESP32S3_Pinout.png' width='100%'/>
+Online Tutorial URL：[tutorial](https://docs.freenove.com/en/latest/)
 
-### Download
 
-Click the green "Code" button, then click "Download ZIP" button in the pop-up window.  
-Do NOT click the "Open in Desktop" button, it will lead you to install Github software.
 
-> If you meet any difficulties, please contact our technical team for help.
+## <img src="readme\text.png" alt="text" width='5%' align="left"/> **Materials Download**
 
-### Use
+Tutorial Materials Download URL：[download](https://docs.freenove.com/en/latest/about-freenove/tutorial.html)
 
-1. Download the ZIP file as above.
-2. Unzip it and you will get a folder contains tutorials and related files.
-3. Please start with "Start Here.pdf".
 
-### Support
 
-Freenove provides free and quick customer support. Including but not limited to:
+## <img src="readme\support.png" alt="support" width='4%' align="left"/>  **Support**
 
-* Quality problems of products
-* Problems of products when used
-* Questions of learning and creation
-* Opinions and suggestions
-* Ideas and thoughts
+We are fully responsible for our products!
 
-Please send an email to:
+Please feel free to send us an email if you have any concerns, whether they are questions before buying or problems in use.
 
 [support@freenove.com](mailto:support@freenove.com)
 
-We will reply within one working day.
+In general, we will reply to you within one working day.
 
-### Purchase
 
-Please visit the following page to purchase our products:
 
-http://freenove.com/store
+## <img src="readme\freenove.png" alt="freenove" width='5%' align="left"/>**Freenove Official Website**
 
-Business customers please contact us through the following email address:
-
-[sale@freenove.com](mailto:sale@freenove.com)
-
-### About
-
-Freenove provides open source electronic products and services.
-
-Freenove is committed to helping customers learn programming and electronic knowledge, quickly implement product prototypes, realize their creativity and launch innovative products. Our services include:
-
-* Kits for learning programming and electronics
-* Kits compatible with Arduino®, Raspberry Pi®, micro:bit®, etc.
-* Kits for robots, smart cars, drones, etc.
-* Components, modules and tools
-* Design and customization
-
-To learn more about us or get our latest information, please visit our website:
-
-http://www.freenove.com
-
-### Copyright
-
-All the files in this repository are released under [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
-You can find a copy of the license in this repository.
-
-![markdown](https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)
-
-> It means you can use these files on your own derived works, in part or completely. But not for commercial use.
-
-Freenove® brand and logo are trademarks of Freenove Creative Technology Co., Ltd. Must not be used without permission.
-
-Other registered trademarks and their owners appearing in this repository:
-
-Arduino® is a trademark of Arduino LLC (https://www.arduino.cc/).  
-Raspberry Pi® is a trademark of Raspberry Pi Foundation (https://www.raspberrypi.org/).  
-micro:bit® is a trademark of Micro:bit Educational Foundation (https://www.microbit.org/).  
-Espressif® is a trademark of Espressif Systems (Shanghai) Co.Ltd (https://www.espressif.com/).
+Freenove Official Website URL: [Freenove](https://freenove.com/)
