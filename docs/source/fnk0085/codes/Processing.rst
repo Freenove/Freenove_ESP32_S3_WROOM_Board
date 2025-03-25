@@ -1,20 +1,20 @@
 ######################################################
-Python language
+Processing language
 ######################################################
 
 .. toctree::
    :maxdepth: 1
-   :caption: Important Information
+   :caption: Welcome
    :glob:
 
-   Python/Important_Information.rst
+   Processing/Welcome.rst
 
 .. toctree::
    :maxdepth: 1
    :caption: Preface
    :glob:
    
-   Python/Preface.rst
+   Processing/Preface.rst
 
 .. toctree::
    :maxdepth: 1
@@ -22,21 +22,16 @@ Python language
    :numbered:
    :glob: 
 
-   Python/1_LED_(Important).rst
-   Python/27_Bluetooth.rst
-   Python/28_WiFi_Working_Modes.rst
-   Python/29_TCP_IP.rst
+   Processing/1_Oscilloscope.rst
+   Processing/2_Control_2D_and_3D_Figures.rst
+   Processing/3_Snake_Game.rst
+   Processing/4_Pick_Apples.rst
+   Processing/5_Pong_Game.rst
+   Processing/6_Tetris.rst
 
 .. toctree::
    :maxdepth: 1
    :caption: What's next?
    :glob:
 
-   What_s_next.rst
-
-.. toctree::
-   :maxdepth: 1
-   :caption: End of the Tutorial
-   :glob:
-
-   Python/End_of_the_Tutorial.rst
+   Processing/What_s_next.rst

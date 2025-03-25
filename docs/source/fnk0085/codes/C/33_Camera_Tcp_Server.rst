@@ -127,14 +127,14 @@ The following is the main program code. You need include other code files in the
 Sketch_Camera_Tcp_Server
 -----------------------------------------
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_33.1_CameraTcpServer/Sketch_33.1_CameraTcpServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_CameraTcpServer/Sketch_08.1_CameraTcpServer.ino
     :linenos: 
     :language: c
     :dedent:
 
 Include header files that drive camera and WiFi. 
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_33.1_CameraTcpServer/Sketch_33.1_CameraTcpServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_CameraTcpServer/Sketch_08.1_CameraTcpServer.ino
     :linenos: 
     :language: c
     :lines: 7-13
@@ -142,7 +142,7 @@ Include header files that drive camera and WiFi.
 
 Set name and password for router that ESP32-S3 needs to connect to. And set ESP32-S3 to open two servers, whose port are 8000 and 5000 respectively.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_33.1_CameraTcpServer/Sketch_33.1_CameraTcpServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_CameraTcpServer/Sketch_08.1_CameraTcpServer.ino
     :linenos: 
     :language: c
     :lines: 16-19
@@ -150,7 +150,7 @@ Set name and password for router that ESP32-S3 needs to connect to. And set ESP3
 
 Enable ESP32-S3's server function and set two monitor ports as 5000 and 8000. In general, the two port numbers do not require modifications.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_33.1_CameraTcpServer/Sketch_33.1_CameraTcpServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_CameraTcpServer/Sketch_08.1_CameraTcpServer.ino
     :linenos: 
     :language: c
     :lines: 21-23
@@ -158,7 +158,7 @@ Enable ESP32-S3's server function and set two monitor ports as 5000 and 8000. In
 
 Initialize serial port, set baud rate to 115200; open the debug and output function of the serial.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_33.1_CameraTcpServer/Sketch_33.1_CameraTcpServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_CameraTcpServer/Sketch_08.1_CameraTcpServer.ino
     :linenos: 
     :language: c
     :lines: 26-28
@@ -166,7 +166,7 @@ Initialize serial port, set baud rate to 115200; open the debug and output funct
 
 Define a variable for camera interface and initialize it. 
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_33.1_CameraTcpServer/Sketch_33.1_CameraTcpServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_CameraTcpServer/Sketch_08.1_CameraTcpServer.ino
     :linenos: 
     :language: c
     :lines: 128-182
@@ -174,7 +174,7 @@ Define a variable for camera interface and initialize it.
 
 Loop function will constantly send camera data obtained to mobile phone APP.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_33.1_CameraTcpServer/Sketch_33.1_CameraTcpServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_CameraTcpServer/Sketch_08.1_CameraTcpServer.ino
     :linenos: 
     :language: c
     :lines: 71-86
@@ -182,7 +182,7 @@ Loop function will constantly send camera data obtained to mobile phone APP.
 
 The loopTask_Cmd() function sends the received instruction back to the phone app and prints it out through a serial port.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_33.1_CameraTcpServer/Sketch_33.1_CameraTcpServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_CameraTcpServer/Sketch_08.1_CameraTcpServer.ino
     :linenos: 
     :language: c
     :lines: 94-119
@@ -190,7 +190,7 @@ The loopTask_Cmd() function sends the received instruction back to the phone app
 
 loopTask_ Blink()function will control the blinking of LED. When you see LED blinking, it indicates that ESP32-S3 has been configured and starts working.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_33.1_CameraTcpServer/Sketch_33.1_CameraTcpServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_CameraTcpServer/Sketch_08.1_CameraTcpServer.ino
     :linenos: 
     :language: c
     :lines: 120-126
@@ -198,7 +198,7 @@ loopTask_ Blink()function will control the blinking of LED. When you see LED bli
 
 If you do not have a router near you, or if you are outdoors, you can annotate the following code, and then compile and upload it to ESP32-S3. And you can display the video images on your phone by Method 1.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_33.1_CameraTcpServer/Sketch_33.1_CameraTcpServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_CameraTcpServer/Sketch_08.1_CameraTcpServer.ino
     :linenos: 
     :language: c
     :lines: 38-52

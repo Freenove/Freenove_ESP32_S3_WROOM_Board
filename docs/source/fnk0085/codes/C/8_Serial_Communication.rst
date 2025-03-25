@@ -80,7 +80,7 @@ As shown in the image above, "ESP32-S3 initialization completed! " The previous 
 
 The following is the program code:
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.1_SerialPrinter/Sketch_08.1_SerialPrinter.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_02.1_SerialPrinter/Sketch_02.1_SerialPrinter.ino
     :linenos: 
     :language: c
     :dedent:
@@ -129,7 +129,7 @@ Then type characters like 'ABCDEFG' into the data sent at the top, and press Ctr
 
 The following is the program code:
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_08.2_SerialRW/Sketch_08.2_SerialRW.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_02.2_SerialRW/Sketch_02.2_SerialRW.ino
     :linenos: 
     :language: c
     :dedent:

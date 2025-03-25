@@ -151,14 +151,14 @@ You can see the printout as shown below.
 
 The following is the program code:
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :dedent:
 
 Add the SD card drive header file.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :lines: 7-8
@@ -166,7 +166,7 @@ Add the SD card drive header file.
 
 Defines the drive pins of the SD card. Please do not modify it. Because these pins are fixed.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :lines: 10-12
@@ -174,7 +174,7 @@ Defines the drive pins of the SD card. Please do not modify it. Because these pi
 
 Initialize the serial port function. Sets the drive pin for SDMMC one-bit bus mode.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :lines: 15-16
@@ -182,7 +182,7 @@ Initialize the serial port function. Sets the drive pin for SDMMC one-bit bus mo
 
 Set the mount point of the SD card, set SDMMC to one-bit bus mode, and set the read and write speed to 20MHz.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :lines: 17-20
@@ -190,7 +190,7 @@ Set the mount point of the SD card, set SDMMC to one-bit bus mode, and set the r
 
 Get the type of SD card and print it out through the serial port.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :lines: 21-36
@@ -198,7 +198,7 @@ Get the type of SD card and print it out through the serial port.
 
 Call the listDir() function to read the folder and file names in the SD card, and print them out through the serial port. This function can be found in "sd_read_write.cpp".
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :lines: 41-41
@@ -217,7 +217,7 @@ Call appendFile() to append any content to txt.
 
 Call readFile() to read the content in txt and print it via the serial port.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :lines: 49-51
@@ -227,7 +227,7 @@ Call deleteFile() to delete a specified file.
 
 Call renameFile() to copy a file and rename it.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :lines: 53-54
@@ -235,7 +235,7 @@ Call renameFile() to copy a file and rename it.
 
 Call the testFileIO() function to test the time it takes to read 512 bytes and the time it takes to write 2048*512 bytes of data.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :lines: 57-57
@@ -243,7 +243,7 @@ Call the testFileIO() function to test the time it takes to read 512 bytes and t
 
 Print the total size and used size of the SD card via the serial port.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_28.1_SDMMC_Test/Sketch_28.1_SDMMC_Test.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_04.1_SDMMC_Test/Sketch_04.1_SDMMC_Test.ino
     :linenos: 
     :language: c
     :lines: 59-60

@@ -43,7 +43,7 @@ Connect Freenove ESP32-S3 to the computer using the USB cable.
 Code
 =============================
 
-Move the program folder “Freenove_Ultimate_Starter_Kit_for_ESP32_S3/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
+Move the program folder “/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
 Open “Thonny”, click “This computer” -> “D:” -> “Micropython_Codes” -> “Station_mode” and double click “Station_mode.py”. 
 
@@ -62,14 +62,14 @@ After making sure the router name and password are entered correctly, compile an
 
 The following is the program code:
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.1_Station_mode/Station_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.1_Station_mode/Station_mode.py
     :linenos: 
     :language: python
     :dedent:
 
 Import network module.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.1_Station_mode/Station_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.1_Station_mode/Station_mode.py
     :linenos: 
     :language: python
     :lines: 2-2
@@ -77,7 +77,7 @@ Import network module.
 
 Enter correct router name and password.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.1_Station_mode/Station_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.1_Station_mode/Station_mode.py
     :linenos: 
     :language: python
     :lines: 4-5
@@ -85,7 +85,7 @@ Enter correct router name and password.
 
 Set ESP32-S3 in Station mode.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.1_Station_mode/Station_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.1_Station_mode/Station_mode.py
     :linenos: 
     :language: python
     :lines: 9-9
@@ -93,7 +93,7 @@ Set ESP32-S3 in Station mode.
 
 Activate ESP32-S3's Station mode, initiate a connection request to the router and enter the password to connect.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.1_Station_mode/Station_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.1_Station_mode/Station_mode.py
     :linenos: 
     :language: python
     :lines: 12-13
@@ -101,7 +101,7 @@ Activate ESP32-S3's Station mode, initiate a connection request to the router an
 
 Wait for ESP32-S3 to connect to router until they connect to each other successfully.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.1_Station_mode/Station_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.1_Station_mode/Station_mode.py
     :linenos: 
     :language: python
     :lines: 14-15
@@ -109,7 +109,7 @@ Wait for ESP32-S3 to connect to router until they connect to each other successf
 
 Print the IP address assigned to ESP32-S3 in “Shell”.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.1_Station_mode/Station_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.1_Station_mode/Station_mode.py
     :linenos: 
     :language: python
     :lines: 16-16
@@ -194,7 +194,7 @@ Connect Freenove ESP32-S3 to the computer using the USB cable.
 Code
 =====================================
 
-Move the program folder “Freenove_Ultimate_Starter_Kit_for_ESP32_S3/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
+Move the program folder “/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
 Open “Thonny”, click “This computer” -> “D:” -> “Micropython_Codes” -> “AP_mode”. and double click “AP_mode.py”. 
 
@@ -218,7 +218,7 @@ Turn on the WiFi scanning function of your phone, and you can see the ssid_AP on
 
 The following is the program code:
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.2_AP_mode/AP_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.2_AP_mode/AP_mode.py
     :linenos: 
     :language: python
     :lines: 1-25
@@ -226,7 +226,7 @@ The following is the program code:
 
 Import network module.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.2_AP_mode/AP_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.2_AP_mode/AP_mode.py
     :linenos: 
     :language: python
     :lines: 1-1
@@ -234,7 +234,7 @@ Import network module.
 
 Enter correct AP name and password.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.2_AP_mode/AP_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.2_AP_mode/AP_mode.py
     :linenos: 
     :language: python
     :lines: 3-4
@@ -242,7 +242,7 @@ Enter correct AP name and password.
 
 Set ESP32-S3 in AP mode.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.2_AP_mode/AP_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.2_AP_mode/AP_mode.py
     :linenos: 
     :language: python
     :lines: 11-11
@@ -250,7 +250,7 @@ Set ESP32-S3 in AP mode.
 
 Configure IP address, gateway and subnet mask for ESP32S3.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.2_AP_mode/AP_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.2_AP_mode/AP_mode.py
     :linenos: 
     :language: python
     :lines: 14-14
@@ -258,7 +258,7 @@ Configure IP address, gateway and subnet mask for ESP32S3.
 
 Turn on an AP in ESP32S3, whose name is set by ssid_AP and password is set by password_AP.
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.2_AP_mode/AP_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.2_AP_mode/AP_mode.py
     :linenos: 
     :language: python
     :lines: 16-17
@@ -266,7 +266,7 @@ Turn on an AP in ESP32S3, whose name is set by ssid_AP and password is set by pa
 
 If the program is running abnormally, the AP disconnection function will be called. 
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.2_AP_mode/AP_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.2_AP_mode/AP_mode.py
     :linenos: 
     :language: python
     :lines: 25-25
@@ -346,7 +346,7 @@ Connect Freenove ESP32-S3 to the computer using the USB cable.
 Code
 ==================================
 
-Move the program folder “Freenove_Ultimate_Starter_Kit_for_ESP32_S3/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
+Move the program folder “/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
 Open “Thonny”, click “This computer” -> “D:” -> “Micropython_Codes” -> “AP+STA_mode”and double click “AP+STA_mode.py”. 
 
@@ -356,7 +356,7 @@ AP+STA_mode
 .. image:: ../_static/imgs/30_WiFi_Working_Modes/Chapter30_18.png
     :align: center
 
-It is analogous to project 28.1 and project 28.2. Before running the Code, you need to modify ssidRouter, passwordRouter, ssidAP and passwordAP shown in the box of the illustration above.
+It is analogous to project 03.1 and project 03.2. Before running the Code, you need to modify ssidRouter, passwordRouter, ssidAP and passwordAP shown in the box of the illustration above.
 
 After making sure that the code is modified correctly, click “Run current script” and the “Shell” will display as follows:
 
@@ -370,7 +370,7 @@ Turn on the WiFi scanning function of your phone, and you can see the ssidAP on 
 
 The following is the program code:
 
-.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/28.3_AP+STA_mode/AP+STA_mode.py
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/03.3_AP+STA_mode/AP+STA_mode.py
     :linenos: 
     :language: python
     :dedent:

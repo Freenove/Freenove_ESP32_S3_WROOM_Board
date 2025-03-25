@@ -68,7 +68,7 @@ Click on Start Stream. The effect is shown in the image below.
 
 The following is the main program code. You need include other code files in the same folder when write your own code.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.1_CameraWebServer/Sketch_32.1_CameraWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.1_CameraWebServer/Sketch_07.1_CameraWebServer.ino
     :linenos: 
     :language: c
     :dedent:
@@ -86,7 +86,7 @@ Add procedure files and API interface files related to ESP32-S3 camera.
 
 Enter the name and password of the router 
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.1_CameraWebServer/Sketch_32.1_CameraWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.1_CameraWebServer/Sketch_07.1_CameraWebServer.ino
     :linenos: 
     :language: c
     :lines: 33-34
@@ -94,7 +94,7 @@ Enter the name and password of the router
 
 Initialize serial port, set baud rate to 115200; open the debug and output function of the serial.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.1_CameraWebServer/Sketch_32.1_CameraWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.1_CameraWebServer/Sketch_07.1_CameraWebServer.ino
     :linenos: 
     :language: c
     :lines: 39-41
@@ -102,7 +102,7 @@ Initialize serial port, set baud rate to 115200; open the debug and output funct
 
 Configure parameters including interface pins of the camera. Note: It is generally not recommended to change them.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.1_CameraWebServer/Sketch_32.1_CameraWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.1_CameraWebServer/Sketch_07.1_CameraWebServer.ino
     :linenos: 
     :language: c
     :lines: 43-68
@@ -110,7 +110,7 @@ Configure parameters including interface pins of the camera. Note: It is general
 
 ESP32-S3 connects to the router and prints a successful connection prompt. If it has not been successfully connected, press the reset key on the ESP32-S3 WROOM.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.1_CameraWebServer/Sketch_32.1_CameraWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.1_CameraWebServer/Sketch_07.1_CameraWebServer.ino
     :linenos: 
     :language: c
     :lines: 95-107
@@ -118,7 +118,7 @@ ESP32-S3 connects to the router and prints a successful connection prompt. If it
 
 Open the video streams server function of the camera and print its IP address via serial port.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.1_CameraWebServer/Sketch_32.1_CameraWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.1_CameraWebServer/Sketch_07.1_CameraWebServer.ino
     :linenos: 
     :language: c
     :lines: 109-113
@@ -132,7 +132,7 @@ The set_brightness() function sets the brightness of the image, with values rang
 
 The set_saturation() function sets the color saturation of the image, with values ranging from -2 to 2.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.1_CameraWebServer/Sketch_32.1_CameraWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.1_CameraWebServer/Sketch_07.1_CameraWebServer.ino
     :linenos: 
     :language: c
     :lines: 89-93
@@ -230,14 +230,14 @@ The effect is shown in the image below.
 
 The following is the main program code. You need include other code files in the same folder when write your own code.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.2_As_VideoWebServer/Sketch_32.2_As_VideoWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.2_As_VideoWebServer/Sketch_07.2_As_VideoWebServer.ino
     :linenos: 
     :language: c
     :dedent:
 
 Configure parameters including interface pins of the camera. Note: It is generally not recommended to change them.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.2_As_VideoWebServer/Sketch_32.2_As_VideoWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.2_As_VideoWebServer/Sketch_07.2_As_VideoWebServer.ino
     :linenos: 
     :language: c
     :lines: 54-79
@@ -245,7 +245,7 @@ Configure parameters including interface pins of the camera. Note: It is general
 
 ESP32-S3 connects to the router and prints a successful connection prompt. If it has not been successfully connected, press the reset key on the ESP32-S3 WROOM.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.2_As_VideoWebServer/Sketch_32.2_As_VideoWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.2_As_VideoWebServer/Sketch_07.2_As_VideoWebServer.ino
     :linenos: 
     :language: c
     :lines: 32-39
@@ -253,7 +253,7 @@ ESP32-S3 connects to the router and prints a successful connection prompt. If it
 
 Open the video streams server function of the camera and print its IP address via serial port.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.2_As_VideoWebServer/Sketch_32.2_As_VideoWebServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.2_As_VideoWebServer/Sketch_07.2_As_VideoWebServer.ino
     :linenos: 
     :language: c
     :lines: 41-45
@@ -341,14 +341,14 @@ When we press the RST button to reset the ESP32-S3, we can see that there are so
 
 The following is the main program code. You need include other code files in the same folder when write your own code.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.3_Camera_SDcard/Sketch_32.3_Camera_SDcard.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.3_Camera_SDcard/Sketch_07.3_Camera_SDcard.ino
     :linenos: 
     :language: c
     :dedent:
 
 Configure camera parameters, including camera interface pins and other information. Altering them is generally not recommended. Returns 1 if the camera is initialized successfully, and returns 0 if it fails.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.3_Camera_SDcard/Sketch_32.3_Camera_SDcard.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.3_Camera_SDcard/Sketch_07.3_Camera_SDcard.ino
     :linenos: 
     :language: c
     :lines: 59-114
@@ -356,7 +356,7 @@ Configure camera parameters, including camera interface pins and other informati
 
 Initialize the serial port, buttons, lights and SD card.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.3_Camera_SDcard/Sketch_32.3_Camera_SDcard.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.3_Camera_SDcard/Sketch_07.3_Camera_SDcard.ino
     :linenos: 
     :language: c
     :lines: 16-21
@@ -364,7 +364,7 @@ Initialize the serial port, buttons, lights and SD card.
 
 Call ws2812SetColor() to set the color of the LED. When the parameter is 0, the LED is turned off, when the parameter is 1, the red light is displayed, when the parameter is 2, the green light is displayed, and when the parameter is 3, the blue light is displayed.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.3_Camera_SDcard/Sketch_32.3_Camera_SDcard.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.3_Camera_SDcard/Sketch_07.3_Camera_SDcard.ino
     :linenos: 
     :language: c
     :lines: 26-26
@@ -372,7 +372,7 @@ Call ws2812SetColor() to set the color of the LED. When the parameter is 0, the 
 
 Get the camera data once, then read the file number in the camera folder of the SD card, and create a new file based on this, write the camera data into it, and finally return the camera structure pointer. If the camera data cannot be obtained, the prompt information will be printed directly.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_32.3_Camera_SDcard/Sketch_32.3_Camera_SDcard.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_07.3_Camera_SDcard/Sketch_07.3_Camera_SDcard.ino
     :linenos: 
     :language: c
     :lines: 40-53

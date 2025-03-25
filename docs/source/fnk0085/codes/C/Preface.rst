@@ -164,12 +164,12 @@ Installing CH343
 .. image:: ../_static/imgs/Preface/Preface18.png
     :align: center
 
-If you would not like to download the installation package, you can open " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/CH343** ", we have prepared the installation package.
+If you would not like to download the installation package, you can open " **Freenove_ESP32_S3_WROOM_Board/CH343** ", we have prepared the installation package.
 
 .. image:: ../_static/imgs/Preface/Preface19.png
     :align: center
 
-2.	Open the folder " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/CH343/Windows/** "
+2.	Open the folder " **Freenove_ESP32_S3_WROOM_Board/CH343/Windows/** "
 
 .. image:: ../_static/imgs/Preface/Preface20.png
     :align: center
@@ -204,9 +204,9 @@ First, download CH343 driver, click http://www.wch-ic.com/search?t=all&q=ch343 t
 .. image:: ../_static/imgs/Preface/Preface25.png
     :align: center
 
-If you would not like to download the installation package, you can open " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/CH343** ", we have prepared the installation package.
+If you would not like to download the installation package, you can open " **Freenove_ESP32_S3_WROOM_Board/CH343** ", we have prepared the installation package.
 
-Second, open the folder " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/CH343/MAC/** "
+Second, open the folder " **Freenove_ESP32_S3_WROOM_Board/CH343/MAC/** "
 
 .. image:: ../_static/imgs/Preface/Preface26.png
     :align: center

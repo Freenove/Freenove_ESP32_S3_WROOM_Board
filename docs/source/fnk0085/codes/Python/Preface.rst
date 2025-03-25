@@ -159,12 +159,12 @@ Installing CH343
 .. image:: ../_static/imgs/Preface/Preface69.png
     :align: center
 
-If you would not like to download the installation package, you can open " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/CH343** ", we have prepared the installation package.
+If you would not like to download the installation package, you can open " **/CH343** ", we have prepared the installation package.
 
 .. image:: ../_static/imgs/Preface/Preface70.png
     :align: center
 
-2.	Open the folder "Freenove_Ultimate_Starter_Kit_for_ESP32_S3/CH343/Windows/"
+2.	Open the folder "/CH343/Windows/"
 
 .. image:: ../_static/imgs/Preface/Preface71.png
     :align: center
@@ -199,9 +199,9 @@ First, download CH343 driver, click http://www.wch-ic.com/search?t=all&q=ch343 t
 .. image:: ../_static/imgs/Preface/Preface76.png
     :align: center
 
-If you would not like to download the installation package, you can open " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/CH343** ", we have prepared the installation package.
+If you would not like to download the installation package, you can open " **/CH343** ", we have prepared the installation package.
 
-Second, open the folder " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/CH343/MAC/** "
+Second, open the folder " **/CH343/MAC/** "
 
 .. image:: ../_static/imgs/Preface/Preface77.png
     :align: center
@@ -282,7 +282,7 @@ Follow the instruction of official website to install Thonny or click the links 
 |                  | sudo dnf install thonny                                                                 |
 +------------------+-----------------------------------------------------------------------------------------+
 
-You can also open " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/Python/Python_Software** ", we have prepared it in advance.
+You can also open " **/Python/Python_Software** ", we have prepared it in advance.
 
 .. image:: ../_static/imgs/Preface/Preface83.png
     :align: center
@@ -365,7 +365,7 @@ Webpage listing firmware of microPython for ESP32S3: https://micropython.org/dow
 
 Firmware used in this tutorial is **GENERIC_S3-20220618-v1.19.1.bin**
 
-This file is also provided in our data folder " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/Python/Python_Firmware** ".
+This file is also provided in our data folder " **/Python/Python_Firmware** ".
 
 Install python3
 ================================
@@ -388,7 +388,7 @@ Connect your computer and ESP32-S3 with a USB cable.
 .. image:: ../_static/imgs/Preface/Preface66.png
     :align: center
 
-Open Freenove_Ultimate_Starter_Kit_for_ESP32_S3/Python/Python_Firmware
+Open /Python/Python_Firmware
 
 Enter cmd on path bar then press Enter. 
 
@@ -413,7 +413,7 @@ As shown in the figure below after completion.
 Mac
 ---------------------------------
 
-Open **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/Python/Python_Firmware** . Right- click and select New Terminal at Folder.
+Open **/Python/Python_Firmware** . Right- click and select New Terminal at Folder.
 
 .. image:: ../_static/imgs/Preface/Preface101.png
     :align: center
@@ -478,7 +478,7 @@ ESP32-S3 needs to be connected to a computer when it is run online. Users can us
 .. image:: ../_static/imgs/Preface/Preface110.png
     :align: center
 
-In the new dialog box, select "HelloWorld.py" in " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/Python/Python_Codes/00.0_HelloWorld** " folder. 
+In the new dialog box, select "HelloWorld.py" in " **/Python/Python_Codes/00.0_HelloWorld** " folder. 
 
 .. image:: ../_static/imgs/Preface/Preface111.png
     :align: center
@@ -499,7 +499,7 @@ Running Offline(Importance)
 
 After ESP32-S3 is reset, it runs the file boot.py in root directory first and then runs file main.py, and finally, it enters "Shell". Therefore, to make ESP32-S3 execute user's programs after resetting, we need to add a guiding program in boot.py to execute user's code.
 
-Move the program folder " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3/Python/Python_Codes** " to disk(D) in advance with the path of " **D:/Micropython_Codes** ". Open "Thonny"。
+Move the program folder " **/Python/Python_Codes** " to disk(D) in advance with the path of " **D:/Micropython_Codes** ". Open "Thonny"。
 
 .. image:: ../_static/imgs/Preface/Preface113.png
     :align: center

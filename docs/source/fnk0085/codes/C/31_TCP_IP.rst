@@ -68,7 +68,7 @@ Install ControlP5.
 .. image:: ../_static/imgs/31_TCP_IP/Chapter31_04.png
     :align: center
 
-Open the " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3\\Sketches\\Sketches\\Sketch_31.1_WiFiClient\sketchWiFi\sketchWiFi.pde** ", and click "Run".
+Open the " **Freenove_ESP32_S3_WROOM_Board\\Sketches\\Sketches\\Sketch_06.1_WiFiClient\sketchWiFi\sketchWiFi.pde** ", and click "Run".
 
 .. image:: ../_static/imgs/31_TCP_IP/Chapter31_05.png
     :align: center
@@ -128,7 +128,7 @@ The newly pop up window will use the computer's IP address by default and open a
 .. image:: ../_static/imgs/31_TCP_IP/Chapter31_10.png
     :align: center
 
-Next, open Sketch_31.1_WiFiClient.ino. Before running it, please change the following information based on "LOCAL IP" and "LOCAL PORT" in the figure above. 
+Next, open Sketch_06.1_WiFiClient.ino. Before running it, please change the following information based on "LOCAL IP" and "LOCAL PORT" in the figure above. 
 
 .. image:: ../_static/imgs/31_TCP_IP/Chapter31_11.png
     :align: center
@@ -155,14 +155,14 @@ Sketch_As_Client
 
 The following is the program code:
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.1_WiFiClient/Sketch_31.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.1_WiFiClient/Sketch_06.1_WiFiClient.ino
     :linenos: 
     :language: c
     :dedent:
 
 Add WiFi function header file.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.1_WiFiClient/Sketch_31.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.1_WiFiClient/Sketch_06.1_WiFiClient.ino
     :linenos: 
     :language: c
     :lines: 7-7
@@ -170,7 +170,7 @@ Add WiFi function header file.
 
 Enter the actual router name, password, remote server IP address, and port number.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.1_WiFiClient/Sketch_31.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.1_WiFiClient/Sketch_06.1_WiFiClient.ino
     :linenos: 
     :language: c
     :lines: 9-12
@@ -178,7 +178,7 @@ Enter the actual router name, password, remote server IP address, and port numbe
 
 Apply for the method class of WiFiClient.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.1_WiFiClient/Sketch_31.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.1_WiFiClient/Sketch_06.1_WiFiClient.ino
     :linenos: 
     :language: c
     :lines: 13-13
@@ -186,7 +186,7 @@ Apply for the method class of WiFiClient.
 
 Connect specified WiFi until it is successful. If the name and password of WiFi are correct but it still fails to connect, please push the reset key.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.1_WiFiClient/Sketch_31.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.1_WiFiClient/Sketch_06.1_WiFiClient.ino
     :linenos: 
     :language: c
     :lines: 19-24
@@ -194,7 +194,7 @@ Connect specified WiFi until it is successful. If the name and password of WiFi 
 
 Send connection request to remote server until connect successfully. When connect successfully, print out the connecting prompt on the serial monitor and send messages to remote server.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.1_WiFiClient/Sketch_31.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.1_WiFiClient/Sketch_06.1_WiFiClient.ino
     :linenos: 
     :language: c
     :lines: 34-39
@@ -202,7 +202,7 @@ Send connection request to remote server until connect successfully. When connec
 
 When ESP32-S3 receive messages from servers, it will print them out via serial port; Users can also send messages to servers from serial port.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.1_WiFiClient/Sketch_31.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.1_WiFiClient/Sketch_06.1_WiFiClient.ino
     :linenos: 
     :language: c
     :lines: 44-54
@@ -210,7 +210,7 @@ When ESP32-S3 receive messages from servers, it will print them out via serial p
 
 If the server is disconnected, turn off WiFi of ESP32-S3.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.1_WiFiClient/Sketch_31.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.1_WiFiClient/Sketch_06.1_WiFiClient.ino
     :linenos: 
     :language: c
     :lines: 55-58
@@ -243,7 +243,7 @@ Reference
     
     **readString():** read string in receive buffer 
 
-Project 31.2 As Server 
+Project As Server 
 *********************************
 
 In this section, ESP32-S3 is used as a server to wait for the connection and communication of client on the same LAN.
@@ -290,7 +290,7 @@ Serial Monitor
 
 Processing: 
 
-Open the " **Freenove_Ultimate_Starter_Kit_for_ESP32_S3\\Sketches\\Sketches\\Sketch_31.2_WiFiServer\sketchWiFi\sketchWiFi.pde** ".
+Open the " **Freenove_ESP32_S3_WROOM_Board\\Sketches\\Sketches\\Sketch_06.2_WiFiServer\\sketchWiFi\\sketchWiFi.pde** ".
 
 Based on the messages printed by the serial monitor, enter correct IP address and serial port in Processing to establish connection and make communication.
 
@@ -299,14 +299,14 @@ Based on the messages printed by the serial monitor, enter correct IP address an
 
 The following is the program code:
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.2_WiFiServer/Sketch_31.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.2_WiFiServer/Sketch_06.2_WiFiServer.ino
     :linenos: 
     :language: c
     :dedent:
 
 Apply for method class of WiFiServer.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.2_WiFiServer/Sketch_31.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.2_WiFiServer/Sketch_06.2_WiFiServer.ino
     :linenos: 
     :language: c
     :lines: 13-13
@@ -314,7 +314,7 @@ Apply for method class of WiFiServer.
 
 Connect specified WiFi until it is successful. If the name and password of WiFi are correct but it still fails to connect, please push the reset key.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.2_WiFiServer/Sketch_31.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.2_WiFiServer/Sketch_06.2_WiFiServer.ino
     :linenos: 
     :language: c
     :lines: 20-28
@@ -322,7 +322,7 @@ Connect specified WiFi until it is successful. If the name and password of WiFi 
 
 Print out the IP address and port number of ESP32-S3.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.2_WiFiServer/Sketch_31.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.2_WiFiServer/Sketch_06.2_WiFiServer.ino
     :linenos: 
     :language: c
     :lines: 29-31
@@ -330,7 +330,7 @@ Print out the IP address and port number of ESP32-S3.
 
 Turn on server mode of ESP32-S3, turn on automatic reconnection.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.2_WiFiServer/Sketch_31.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.2_WiFiServer/Sketch_06.2_WiFiServer.ino
     :linenos: 
     :language: c
     :lines: 32-33
@@ -338,7 +338,7 @@ Turn on server mode of ESP32-S3, turn on automatic reconnection.
 
 When ESP32-S3 receive messages from servers, it will print them out via serial port; Users can also send messages to servers from serial port.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_31.2_WiFiServer/Sketch_31.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_06.2_WiFiServer/Sketch_06.2_WiFiServer.ino
     :linenos: 
     :language: c
     :lines: 41-48
