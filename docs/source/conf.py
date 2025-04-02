@@ -16,6 +16,7 @@ os.system("rm -r freenove_Kit")
 os.system("git clone --depth 1 https://github.com/Freenove/Freenove_ESP32_S3_WROOM_Board freenove_Kit")
 
 project = "fnk0085-docs"
+# <!!!BEGIN!!!>
 copyright = '2016-2025, Freenove'
 author = 'Freenove'
 release = 'v1.0.0'
@@ -131,3 +132,4 @@ def setup(app):
     # app.add_css_file('https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/css/custom.css')
 
 suppress_warnings = ['autosectionlabel.*']
+# <!!!END!!!>
