@@ -33,7 +33,7 @@ ESP32-S3-WROOM-1 has launched a total of two antenna packages, PCB on-board ante
 
 In this tutorial, the ESP32-S3 WROOM is designed based on the PCB on-board antenna-packaged ESP32-S3-WROOM-1 module. 
 
-Currently, we have two development board options available: the N8R8 version with a black PCB and the N16R8 version with a red PCB.The only difference between these two boards lies in their built-in Flash storage capacity, while all other features, functionalities, and peripheral circuits remain identical. 
+Currently, we have two development board options available: the N8R8 **(8MB Flash + 8MB PSRAM)** version with a black PCB and the N16R8 **(8MB Flash + 8MB PSRAM)** version with a red PCB.The only difference between these two boards lies in their built-in Flash storage capacity, while all other features, functionalities, and peripheral circuits remain identical. 
 
 (Note: The N16R8 version is currently sold as a single-board kit only.)
 
