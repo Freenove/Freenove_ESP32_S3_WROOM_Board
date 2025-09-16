@@ -7,6 +7,7 @@
 # add these directories to sys.path here.
 from datetime import datetime
 import os
+import subprocess
 import pathlib
 import sys
 
