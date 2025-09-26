@@ -245,77 +245,68 @@ If you still haven't installed the CH340 by following the steps above, you can v
     :align: center
 
 Programming Software
-****************************************
+****************************************************************
 
 Arduino Software (IDE) is used to write and upload the code for Arduino Board.
 
-First, install Arduino Software (IDE): visit https://www.arduino.cc, click "Download" to enter the download page.
+First, install Arduino Software (IDE): visit https://www.arduino.cc/en/software/
 
-.. image:: ../_static/imgs/Preface/Preface32.png
+.. image:: ../_static/imgs/ArduinoIDE/Preface03.png
+    :align: center
+    :width: 99%
+    :class: image-border
+
+Select and download corresponding installer based on your operating system. If you are a Windows user, please select the "Windows" to download and install the driver correctly.
+
+.. image:: ../_static/imgs/ArduinoIDE/Preface04.png
     :align: center
 
-Select and download corresponding installer according to your operating system. If you are a windows user, please select the "Windows Installer" to download to install the driver correctly.
+After the downloading completes, run the installer. For Windows users, there may pop up an installation dialog box of driver during the installation process. When it is popped up, please allow the installation.
 
-.. image:: ../_static/imgs/Preface/Preface33.png
+After installation is completed, an shortcut will be generated in the desktop.
+
+.. image:: ../_static/imgs/ArduinoIDE/Preface05.png
     :align: center
 
-After the download completes, run the installer. For Windows users, there may pop up an installation dialog box of driver during the installation process. When it popes up, please allow the installation.
+Run it. The interface of the software is as follows:
 
-After installation is complete, an Arduino Software shortcut will be generated in the desktop. Run the Arduino Software.
-
-.. image:: ../_static/imgs/Preface/Preface34.png
+.. image:: ../_static/imgs/ArduinoIDE/Preface06.png
     :align: center
 
-The interface of Arduino Software is as follows:
+Programs written with Arduino IDE are called sketches. These sketches are written in a text editor and are saved with the file extension.ino. The editor has features for cutting/pasting and for searching/replacing text. The console displays text output by the Arduino IDE, including complete error messages and other information. The bottom right-hand corner of the window displays the configured board and serial port. The toolbar buttons allow you to verify and upload programs, open the serial monitor, and access the serial plotter.
 
-.. image:: ../_static/imgs/Preface/Preface35.png
+.. table::
     :align: center
+    :class: table-line
+    :width: 80%
+    
+    +-------------+---------------------------------------------------------------------+
+    | |Arduino07| | Verify                                                              |
+    |             |                                                                     |
+    |             | Checks your code for errors compiling it.                           |
+    +-------------+---------------------------------------------------------------------+
+    | |Arduino08| | Upload                                                              |
+    |             |                                                                     |
+    |             | Compiles your code and uploads it to the configured board.          |
+    +-------------+---------------------------------------------------------------------+
+    | |Arduino09| | Debug                                                               |
+    |             |                                                                     |
+    |             | Troubleshoot code errors and monitor program running status.        |
+    +-------------+---------------------------------------------------------------------+
+    | |Arduino10| | Serial Plotter                                                      |
+    |             |                                                                     |
+    |             | Real-time plotting of serial port data charts.                      |
+    +-------------+---------------------------------------------------------------------+
+    | |Arduino11| | Serial Monitor                                                      |
+    |             |                                                                     |
+    |             | Used for debugging and communication between devices and computers. |
+    +-------------+---------------------------------------------------------------------+
 
-Programs written with Arduino Software (IDE) are called **sketches** . These sketches are written in the text editor and saved with the file extension **.ino** . The editor has features for cutting/pasting and searching/replacing text. The message area gives feedback while saving and exporting and also displays errors. The console displays text output by the Arduino Software (IDE), including complete error messages and other information. The bottom right-hand corner of the window displays the configured board and serial port. The toolbar buttons allow you to verify and upload programs, create, open, and save sketches, and open the serial monitor.
-
-.. list-table:: 
-   :width: 100%
-   :align: center
-   
-   * -  |Preface36|
-     -  Verify 
-      
-        Check your code for compile errors.
-
-   * -  |Preface37|
-     -  Upload 
-      
-        Compile your code and upload them to the configured board. 
-
-   * -  |Preface38|
-     -  Debug
-      
-        Debug code running on the board. (Some development boards do not 
-        
-        support this function)
-   * -  |Preface39|
-     -  Development board selection
-      
-        Configure the support package and upload port of the development board.
-
-   * -  |Preface40|
-     -  Serial Plotter
-      
-        Receive serial port data and plot it in a discounted graph.
-
-   * -  |Preface41|
-     -  Serial Monitor 
-      
-        Open the serial monitor. 
-
-.. |Preface36| image:: ../_static/imgs/Preface/Preface36.png
-.. |Preface37| image:: ../_static/imgs/Preface/Preface37.png
-.. |Preface38| image:: ../_static/imgs/Preface/Preface38.png
-.. |Preface39| image:: ../_static/imgs/Preface/Preface39.png
-.. |Preface40| image:: ../_static/imgs/Preface/Preface40.png
-.. |Preface41| image:: ../_static/imgs/Preface/Preface41.png
-
-Additional commands are found within the five menus: File, Edit, Sketch, Tools, Help. The menus are context sensitive, which means only those items relevant to the work currently being carried out are available.
+.. |Arduino07| image:: ../_static/imgs/ArduinoIDE/Preface07.png
+.. |Arduino08| image:: ../_static/imgs/ArduinoIDE/Preface08.png
+.. |Arduino09| image:: ../_static/imgs/ArduinoIDE/Preface09.png
+.. |Arduino10| image:: ../_static/imgs/ArduinoIDE/Preface10.png
+.. |Arduino11| image:: ../_static/imgs/ArduinoIDE/Preface11.png
 
 Environment Configuration
 *********************************
@@ -329,6 +320,8 @@ Second, click on the symbol behind "Additional Boards Manager URLs"
 
 .. image:: ../_static/imgs/Preface/Preface43.png
     :align: center
+    :class: image-border
+    :width: 60%
 
 Third, fill in https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json in the new window, click OK, and click OK on the Preferences window again.
 
@@ -399,9 +392,14 @@ Cam Pin
 .. image:: ../_static/imgs/Preface/Preface50.png
     :align: center
 
+|
+
 .. list-table:: 
-   :width: 100%
+   :width: 50%
    :align: center
+   :widths: 1 1
+   :header-rows: 1
+   :class: text-center zebra
    
    * -  CAM_Pin
      -  GPIO_pin 
