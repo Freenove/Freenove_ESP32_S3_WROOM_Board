@@ -6,7 +6,7 @@
 **********************************************************************/
 #include "esp_camera.h"
 #include <WiFi.h>
-
+#include "board_config.h"
 // ===================
 // Select camera model
 // ===================
@@ -88,7 +88,7 @@ void setup() {
 
   sensor_t * s = esp_camera_sensor_get();
   // initial sensors are flipped vertically and colors are a bit saturated
-  s->set_vflip(s, 1); // flip it back
+  s->set_vflip(s, 0); // flip it back
   s->set_brightness(s, 1); // up the brightness just a bit
   s->set_saturation(s, 0); // lower the saturation
   
