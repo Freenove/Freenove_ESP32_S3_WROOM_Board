@@ -43,7 +43,7 @@ Connect Freenove ESP32-S3 to the computer using the USB cable.
 Code
 =============================
 
-Move the program folder “/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
+Move the program folder “Freenove ESP32-S3 WROOM Board/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
 Open “Thonny”, click “This computer” -> “D:” -> “Micropython_Codes” -> “Station_mode” and double click “Station_mode.py”. 
 
@@ -170,7 +170,7 @@ Project AP mode
 Component List & Circuit
 =================================
 
-Component List & Circuit are the same as in Project 30.1.
+Component List & Circuit are the same as in Project 04.1.
 
 Component knowledge
 =================================
@@ -194,7 +194,7 @@ Connect Freenove ESP32-S3 to the computer using the USB cable.
 Code
 =====================================
 
-Move the program folder “/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
+Move the program folder “Freenove ESP32-S3 WROOM Board/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
 Open “Thonny”, click “This computer” -> “D:” -> “Micropython_Codes” -> “AP_mode”. and double click “AP_mode.py”. 
 
@@ -346,7 +346,7 @@ Connect Freenove ESP32-S3 to the computer using the USB cable.
 Code
 ==================================
 
-Move the program folder “/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
+Move the program folder “Freenove ESP32-S3 WROOM Board/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
 Open “Thonny”, click “This computer” -> “D:” -> “Micropython_Codes” -> “AP+STA_mode”and double click “AP+STA_mode.py”. 
 

@@ -26,6 +26,7 @@ Python language
    Python/27_Bluetooth.rst
    Python/28_WiFi_Working_Modes.rst
    Python/29_TCP_IP.rst
+   Python/30_Camera_Web_Server.rst
 
 .. toctree::
    :maxdepth: 1

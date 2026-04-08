@@ -68,7 +68,7 @@ Install ControlP5.
 .. image:: ../_static/imgs/31_TCP_IP/Chapter31_04.png
     :align: center
 
-Open the " **\\Sketches\\Sketches\\Sketch_31.1_WiFiClient\\sketchWiFi\\sketchWiFi.pde** ", and click "Run".
+Open the " **Freenove ESP32-S3 WROOM Board\\Sketches\\Sketches\\Sketch_31.1_WiFiClient\\sketchWiFi\\sketchWiFi.pde** ", and click "Run".
 
 .. image:: ../_static/imgs/31_TCP_IP/Chapter31_05.png
     :align: center
@@ -128,7 +128,7 @@ The newly pop up window will use the computer's IP address by default and open a
 .. image:: ../_static/imgs/31_TCP_IP/Chapter31_20.png
     :align: center
 
-Move the program folder “/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
+Move the program folder “Freenove ESP32-S3 WROOM Board/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
 Open “Thonny”, click “This computer” -> “D:” -> “Micropython_Codes” -> “TCP_as_Client” and double click “TCP_as_Client.py”. 
 
@@ -290,7 +290,7 @@ Connect Freenove ESP32-S3 to the computer using a USB cable.
 Code
 ==============================
 
-Move the program folder “/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
+Move the program folder “Freenove ESP32-S3 WROOM Board/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
 Open “Thonny”, click “This computer” -> “D:” -> “Micropython_Codes” -> “TCP_as_Server” and double click “TCP_as_Server.py”. 
 
@@ -309,7 +309,7 @@ After making sure that the router's name and password are correct, click “Run 
 
 Processing:
 
-Open the “/Codes/MicroPython_Codes/TCP_as_Server/sketchWiFi/sketchWiFi.pde”.
+Open the “Freenove ESP32-S3 WROOM Board/Codes/MicroPython_Codes/TCP_as_Server/sketchWiFi/sketchWiFi.pde”.
 
 Based on the message printed in "Shell", enter the correct IP address and port when processing, and click to establish a connection with ESP32-S3 to communicate.
 

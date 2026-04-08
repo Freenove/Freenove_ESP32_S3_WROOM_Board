@@ -58,7 +58,7 @@ If you can't install Serial Bluetooth on your phone, try LightBlue.If you do not
 .. image:: ../_static/imgs/27_Bluetooth/Chapter27_02.png
     :align: center
 
-Move the program folder “/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
+Move the program folder “Freenove ESP32-S3 WROOM Board/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
 Open “Thonny”, click “This computer” -> “D:” -> “Micropython_Codes” -> “BLE”. Select “ble_advertising.py”, right click your mouse to select “Upload to /”, wait for “ble_advertising.py” to be uploaded to ESP32-S3 and then double click “BLE.py”. 
 
