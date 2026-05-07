@@ -37,14 +37,27 @@ void loop() {
     if(digitalRead(BUTTON_PIN)==LOW){
 	  	ws2812SetColor(3);
       while(digitalRead(BUTTON_PIN)==LOW);
-      camera_fb_t * fb = NULL;
-      fb = esp_camera_fb_get();
+      camera_fb_t * fb = esp_camera_fb_get();
       if (fb != NULL) {
         int photo_index = readFileNum(SD_MMC, "/camera");
-        if(photo_index!=-1)
-        {
-          String path = "/camera/" + String(photo_index) +".jpg";
-          writejpg(SD_MMC, path.c_str(), fb->buf, fb->len);
+        if(photo_index != -1) {
+          String path = "/camera/" + String(photo_index) + ".jpg";
+
+          if (fb->format == PIXFORMAT_JPEG) {
+            writejpg(SD_MMC, path.c_str(), fb->buf, fb->len);
+            Serial.println("Direct JPEG save.");
+          } 
+          else {
+            uint8_t *jpg_buf = NULL;
+            size_t jpg_len = 0;
+            
+            if (frame2jpg(fb, 80, &jpg_buf, &jpg_len)) {
+              writejpg(SD_MMC, path.c_str(), jpg_buf, jpg_len);
+              free(jpg_buf);
+            } else {
+              Serial.println("JPEG compression failed!");
+            }
+          }
         }
         esp_camera_fb_return(fb);
       }
@@ -77,8 +90,8 @@ int cameraSetup(void) {
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
-  config.frame_size = FRAMESIZE_UXGA;
-  config.pixel_format = PIXFORMAT_JPEG; // for streaming
+  config.frame_size = FRAMESIZE_QVGA;
+  config.pixel_format = PIXFORMAT_RGB565; // for streaming
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
   config.jpeg_quality = 12;
@@ -104,11 +117,30 @@ int cameraSetup(void) {
   }
 
   sensor_t * s = esp_camera_sensor_get();
-  // initial sensors are flipped vertically and colors are a bit saturated
-  s->set_vflip(s, 1); // flip it back
-  s->set_brightness(s, 1); // up the brightness just a bit
-  s->set_saturation(s, 0); // lower the saturation
+  uint8_t pid = s->id.PID;
 
+  if(pid == 0x45)
+  {
+    s->set_hmirror(s, 1);
+    vTaskDelay(500);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }else if(pid == 0x26)
+  {
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }else if(pid == 0x9B)
+  {
+    s->set_hmirror(s, 0);
+    vTaskDelay(500);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }
+  else{
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }
+  s->set_brightness(s, 1);  // Slightly increase brightness
+  s->set_saturation(s, 0);  // Reduce saturation
+  s->set_ae_level(s, -3);   // Set exposure compensation level
   Serial.println("Camera configuration complete!");
   return 1;
 }

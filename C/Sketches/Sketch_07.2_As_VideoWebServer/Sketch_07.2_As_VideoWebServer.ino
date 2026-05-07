@@ -72,7 +72,7 @@ void cameraInit(void){
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
   config.frame_size = FRAMESIZE_VGA;
-  config.pixel_format = PIXFORMAT_JPEG; // for streaming
+  config.pixel_format = PIXFORMAT_RGB565; // for streaming
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
   config.jpeg_quality = 12;
@@ -98,9 +98,28 @@ void cameraInit(void){
   }
 
   sensor_t * s = esp_camera_sensor_get();
-  // initial sensors are flipped vertically and colors are a bit saturated
-  s->set_vflip(s, 1); // flip it back
-  s->set_brightness(s, 1); // up the brightness just a bit
-  s->set_saturation(s, 0); // lower the saturation
-}
+  uint8_t pid = s->id.PID;
 
+  if(pid == 0x45)
+  {
+    s->set_hmirror(s, 0);
+    vTaskDelay(500);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }else if(pid == 0x26)
+  {
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }else if(pid == 0x9B)
+  {
+    s->set_hmirror(s, 1);
+    vTaskDelay(500);
+    s->set_vflip(s, 1);       // Flip the image vertically
+  }
+  else{
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 0);       // Flip the image vertically
+  }
+  s->set_brightness(s, 1);  // Slightly increase brightness
+  s->set_saturation(s, 0);  // Reduce saturation
+  s->set_ae_level(s, -3);   // Set exposure compensation level
+}
