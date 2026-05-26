@@ -2,7 +2,7 @@
   Filename    : Camera Web Server
   Description : The camera images captured by the ESP32S3 are displayed on the web page.
   Auther      : www.freenove.com
-  Modification: 2024/07/01
+  Modification: 2026/05/16
 **********************************************************************/
 #include "esp_camera.h"
 #include <WiFi.h>
@@ -32,66 +32,18 @@
 // ===========================
 const char* ssid     = "********";
 const char* password = "********";
+camera_config_t config;
 
 void startCameraServer();
+void camera_init();
 
 void setup() {
   Serial.begin(115200);
   Serial.setDebugOutput(true);
   Serial.println();
 
-  camera_config_t config;
-  config.ledc_channel = LEDC_CHANNEL_0;
-  config.ledc_timer = LEDC_TIMER_0;
-  config.pin_d0 = Y2_GPIO_NUM;
-  config.pin_d1 = Y3_GPIO_NUM;
-  config.pin_d2 = Y4_GPIO_NUM;
-  config.pin_d3 = Y5_GPIO_NUM;
-  config.pin_d4 = Y6_GPIO_NUM;
-  config.pin_d5 = Y7_GPIO_NUM;
-  config.pin_d6 = Y8_GPIO_NUM;
-  config.pin_d7 = Y9_GPIO_NUM;
-  config.pin_xclk = XCLK_GPIO_NUM;
-  config.pin_pclk = PCLK_GPIO_NUM;
-  config.pin_vsync = VSYNC_GPIO_NUM;
-  config.pin_href = HREF_GPIO_NUM;
-  config.pin_sccb_sda = SIOD_GPIO_NUM;
-  config.pin_sccb_scl = SIOC_GPIO_NUM;
-  config.pin_pwdn = PWDN_GPIO_NUM;
-  config.pin_reset = RESET_GPIO_NUM;
-  config.xclk_freq_hz = 10000000;
-  config.frame_size = FRAMESIZE_SVGA;
-  config.pixel_format = PIXFORMAT_RGB565; // for streaming
-  config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
-  config.fb_location = CAMERA_FB_IN_PSRAM;
-  config.jpeg_quality = 12;
-  config.fb_count = 2;
-  
-  // if PSRAM IC present, init with UXGA resolution and higher JPEG quality
-  // for larger pre-allocated frame buffer.
-  if(psramFound()){
-    config.jpeg_quality = 10;
-    config.fb_count = 2;
-    config.grab_mode = CAMERA_GRAB_LATEST;
-  } else {
-    // Limit the frame size when PSRAM is not available
-    config.fb_count = 1;
-    config.fb_location = CAMERA_FB_IN_DRAM;
-  }
+  camera_init();
 
-  // camera init
-  esp_err_t err = esp_camera_init(&config);
-  if (err != ESP_OK) {
-    Serial.printf("Camera init failed with error 0x%x", err);
-    return;
-  }
-
-  sensor_t * s = esp_camera_sensor_get();
-  // initial sensors are flipped vertically and colors are a bit saturated
-  s->set_vflip(s, 0); // flip it back
-  s->set_brightness(s, 1); // up the brightness just a bit
-  s->set_saturation(s, 0); // lower the saturation
-  
   WiFi.begin(ssid, password);
   WiFi.setSleep(false);
 
@@ -116,4 +68,74 @@ void setup() {
 void loop() {
   // Do nothing. Everything is done in another task by the web server
   delay(10000);
+}
+
+void camera_init() {
+  config.ledc_channel = LEDC_CHANNEL_0;
+  config.ledc_timer = LEDC_TIMER_0;
+  config.pin_d0 = Y2_GPIO_NUM;
+  config.pin_d1 = Y3_GPIO_NUM;
+  config.pin_d2 = Y4_GPIO_NUM;
+  config.pin_d3 = Y5_GPIO_NUM;
+  config.pin_d4 = Y6_GPIO_NUM;
+  config.pin_d5 = Y7_GPIO_NUM;
+  config.pin_d6 = Y8_GPIO_NUM;
+  config.pin_d7 = Y9_GPIO_NUM;
+  config.pin_xclk = XCLK_GPIO_NUM;
+  config.pin_pclk = PCLK_GPIO_NUM;
+  config.pin_vsync = VSYNC_GPIO_NUM;
+  config.pin_href = HREF_GPIO_NUM;
+  config.pin_sccb_sda = SIOD_GPIO_NUM;
+  config.pin_sccb_scl = SIOC_GPIO_NUM;
+  config.pin_pwdn = PWDN_GPIO_NUM;
+  config.pin_reset = RESET_GPIO_NUM;
+  config.xclk_freq_hz = 10000000;
+  config.frame_size = FRAMESIZE_QVGA;
+  config.pixel_format = PIXFORMAT_JPEG; // for streaming
+  config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
+  config.fb_location = CAMERA_FB_IN_PSRAM;
+  config.jpeg_quality = 10;
+  config.fb_count = 1;
+  
+  // camera init
+  esp_err_t err = esp_camera_init(&config);
+  if (err != ESP_OK) {
+    if(err==ESP_ERR_NOT_SUPPORTED){
+      config.pixel_format = PIXFORMAT_RGB565;
+      esp_err_t err = esp_camera_init(&config);
+      if (err != ESP_OK) {
+        Serial.printf("Camera init failed with error 0x%x", err);
+        return;
+      }
+    }
+  }
+
+  sensor_t * s = esp_camera_sensor_get();
+  // drop down frame size for higher initial frame rate
+  uint16_t pid = s->id.PID;
+  if(pid == OV2640_PID){
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 1);     
+  }
+  else if(pid == OV3660_PID){
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 0);     
+  }
+  else if(pid == GC2145_PID){
+    s->set_hmirror(s, 0);
+    delay(500);
+    s->set_vflip(s, 0);      
+  }
+  else if(pid == GC0308_PID){
+    s->set_hmirror(s, 0);
+    delay(500);
+    s->set_vflip(s, 0);     
+  }
+  else{
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 0);       
+  }
+  s->set_brightness(s, 1);  // Slightly increase brightness
+  s->set_saturation(s, 0);  // Reduce saturation
+  s->set_ae_level(s, -3);   // Set exposure compensation level
 }

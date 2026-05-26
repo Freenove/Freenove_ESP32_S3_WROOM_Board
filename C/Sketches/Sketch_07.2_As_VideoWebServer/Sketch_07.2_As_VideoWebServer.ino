@@ -2,7 +2,7 @@
   Filename    : Video Web Server
   Description : The camera images captured by the ESP32S3 are displayed on the web page.
   Auther      : www.freenove.com
-  Modification: 2022/11/01
+  Modification: 2026/05/16
 **********************************************************************/
 #include "esp_camera.h"
 #include <WiFi.h>
@@ -15,6 +15,7 @@
 
 const char* ssid     = "********";   //input your wifi name
 const char* password = "********";   //input your wifi passwords
+camera_config_t config;
 
 void cameraInit(void);
 void startCameraServer();
@@ -51,7 +52,6 @@ void loop() {
 }
 
 void cameraInit(void){
-  camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
   config.ledc_timer = LEDC_TIMER_0;
   config.pin_d0 = Y2_GPIO_NUM;
@@ -71,53 +71,50 @@ void cameraInit(void){
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
-  config.frame_size = FRAMESIZE_VGA;
-  config.pixel_format = PIXFORMAT_RGB565; // for streaming
+  config.frame_size = FRAMESIZE_QVGA;
+  config.pixel_format = PIXFORMAT_JPEG; // for streaming
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
-  config.jpeg_quality = 12;
+  config.jpeg_quality = 10;
   config.fb_count = 1;
   
-  // if PSRAM IC present, init with UXGA resolution and higher JPEG quality
-  // for larger pre-allocated frame buffer.
-  if(psramFound()){
-    config.jpeg_quality = 10;
-    config.fb_count = 2;
-    config.grab_mode = CAMERA_GRAB_LATEST;
-  } else {
-    // Limit the frame size when PSRAM is not available
-    config.frame_size = FRAMESIZE_SVGA;
-    config.fb_location = CAMERA_FB_IN_DRAM;
-  }
-
   // camera init
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
-    Serial.printf("Camera init failed with error 0x%x", err);
-    return;
+    if(err==ESP_ERR_NOT_SUPPORTED){
+      config.pixel_format = PIXFORMAT_RGB565;
+      esp_err_t err = esp_camera_init(&config);
+      if (err != ESP_OK) {
+        Serial.printf("Camera init failed with error 0x%x", err);
+        return;
+      }
+    }
   }
 
   sensor_t * s = esp_camera_sensor_get();
-  uint8_t pid = s->id.PID;
-
-  if(pid == 0x45)
-  {
+  // drop down frame size for higher initial frame rate
+  uint16_t pid = s->id.PID;
+  if(pid == OV2640_PID){
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 1);     
+  }
+  else if(pid == OV3660_PID){
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 0);     
+  }
+  else if(pid == GC2145_PID){
     s->set_hmirror(s, 0);
-    vTaskDelay(500);
-    s->set_vflip(s, 0);       // Flip the image vertically
-  }else if(pid == 0x26)
-  {
-    s->set_hmirror(s, 1);
-    s->set_vflip(s, 1);       // Flip the image vertically
-  }else if(pid == 0x9B)
-  {
-    s->set_hmirror(s, 1);
-    vTaskDelay(500);
-    s->set_vflip(s, 1);       // Flip the image vertically
+    delay(500);
+    s->set_vflip(s, 0);      
+  }
+  else if(pid == GC0308_PID){
+    s->set_hmirror(s, 0);
+    delay(500);
+    s->set_vflip(s, 0);     
   }
   else{
     s->set_hmirror(s, 1);
-    s->set_vflip(s, 0);       // Flip the image vertically
+    s->set_vflip(s, 0);       
   }
   s->set_brightness(s, 1);  // Slightly increase brightness
   s->set_saturation(s, 0);  // Reduce saturation

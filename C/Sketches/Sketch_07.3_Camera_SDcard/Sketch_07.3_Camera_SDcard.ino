@@ -2,7 +2,7 @@
   Filename    : Camera and SDcard
   Description : Use the onboard buttons to take photo and save them to an SD card.
   Auther      : www.freenove.com
-  Modification: 2022/11/02
+  Modification: 2026/05/16
 **********************************************************************/
 #include "esp_camera.h"
 #define CAMERA_MODEL_ESP32S3_EYE
@@ -11,6 +11,7 @@
 #include "sd_read_write.h"
 
 #define BUTTON_PIN  0
+camera_config_t config;
 
 void setup() {
   Serial.begin(115200);
@@ -70,7 +71,6 @@ void loop() {
 }
 
 int cameraSetup(void) {
-  camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
   config.ledc_timer = LEDC_TIMER_0;
   config.pin_d0 = Y2_GPIO_NUM;
@@ -91,56 +91,52 @@ int cameraSetup(void) {
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
   config.frame_size = FRAMESIZE_QVGA;
-  config.pixel_format = PIXFORMAT_RGB565; // for streaming
+  config.pixel_format = PIXFORMAT_JPEG; // for streaming
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
-  config.jpeg_quality = 12;
+  config.jpeg_quality = 10;
   config.fb_count = 1;
   
-  // if PSRAM IC present, init with UXGA resolution and higher JPEG quality
-  // for larger pre-allocated frame buffer.
-  if(psramFound()){
-    config.jpeg_quality = 10;
-    config.fb_count = 2;
-    config.grab_mode = CAMERA_GRAB_LATEST;
-  } else {
-    // Limit the frame size when PSRAM is not available
-    config.frame_size = FRAMESIZE_SVGA;
-    config.fb_location = CAMERA_FB_IN_DRAM;
-  }
-
   // camera init
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
-    Serial.printf("Camera init failed with error 0x%x", err);
-    return 0;
+    if(err==ESP_ERR_NOT_SUPPORTED){
+      config.pixel_format = PIXFORMAT_RGB565;
+      esp_err_t err = esp_camera_init(&config);
+      if (err != ESP_OK) {
+        Serial.printf("Camera init failed with error 0x%x", err);
+        return 0;
+      }
+    }
   }
 
   sensor_t * s = esp_camera_sensor_get();
-  uint8_t pid = s->id.PID;
-
-  if(pid == 0x45)
-  {
+  // drop down frame size for higher initial frame rate
+  uint16_t pid = s->id.PID;
+  if(pid == OV2640_PID){
     s->set_hmirror(s, 1);
-    vTaskDelay(500);
-    s->set_vflip(s, 1);       // Flip the image vertically
-  }else if(pid == 0x26)
-  {
+    s->set_vflip(s, 1);     
+  }
+  else if(pid == OV3660_PID){
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 0);     
+  }
+  else if(pid == GC2145_PID){
     s->set_hmirror(s, 0);
-    s->set_vflip(s, 0);       // Flip the image vertically
-  }else if(pid == 0x9B)
-  {
+    delay(500);
+    s->set_vflip(s, 0);      
+  }
+  else if(pid == GC0308_PID){
     s->set_hmirror(s, 0);
-    vTaskDelay(500);
-    s->set_vflip(s, 0);       // Flip the image vertically
+    delay(500);
+    s->set_vflip(s, 0);     
   }
   else{
-    s->set_hmirror(s, 0);
-    s->set_vflip(s, 1);       // Flip the image vertically
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 0);       
   }
   s->set_brightness(s, 1);  // Slightly increase brightness
   s->set_saturation(s, 0);  // Reduce saturation
   s->set_ae_level(s, -3);   // Set exposure compensation level
-  Serial.println("Camera configuration complete!");
   return 1;
 }

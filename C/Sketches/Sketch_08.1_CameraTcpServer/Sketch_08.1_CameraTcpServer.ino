@@ -2,7 +2,7 @@
   Filename    : Camera Tcp Serrver
   Description : Users use Freenove's APP to view images from ESP32S3's camera
   Auther      : www.freenove.com
-  Modification: 2024/07/01
+  Modification: 2026/05/16
 **********************************************************************/
 #include "esp_camera.h"
 #include <WiFi.h>
@@ -21,13 +21,16 @@ const char *password_AP     =   "********";
 WiFiServer server_Cmd(5000);
 WiFiServer server_Camera(8000);
 extern TaskHandle_t loopTaskHandle;
+camera_config_t config;
+void camera_init();
 
 void setup() {
   Serial.begin(115200);
   Serial.setDebugOutput(false);
   Serial.println();
   pinMode(LED_BUILT_IN, OUTPUT);
-  cameraSetup();
+
+  camera_init();
 
   WiFi.softAP(ssid_AP, password_AP);
   IPAddress myIP = WiFi.softAPIP();
@@ -68,20 +71,43 @@ void loop() {
     String currentLine = "";                               // make a String to hold incoming data from the client
     while (client.connected()) {                           // loop while the client's connected
       camera_fb_t * fb = NULL;
+      size_t jpg_buf_len = 0;
+      uint8_t *jpg_buf = NULL;
       while (client.connected()) {
         fb = esp_camera_fb_get();
-        if (fb != NULL) {
-          uint8_t slen[4];
-          slen[0] = fb->len >> 0;
-          slen[1] = fb->len >> 8;
-          slen[2] = fb->len >> 16;
-          slen[3] = fb->len >> 24;
-          client.write(slen, 4);
-          client.write(fb->buf, fb->len);
-          esp_camera_fb_return(fb);
+        if (!fb){
+            Serial.println("Camera capture failed");
         }
-        else {
-          Serial.println("Camera Error");
+        else{
+            if (fb->format != PIXFORMAT_JPEG){
+                bool jpeg_converted = frame2jpg(fb, 80, &jpg_buf, &jpg_buf_len);
+                esp_camera_fb_return(fb);
+                fb = NULL;
+                if (!jpeg_converted){
+                    Serial.println("JPEG compression failed");
+                    continue;
+                }
+            }
+            else{
+                jpg_buf_len = fb->len;
+                jpg_buf = fb->buf;
+            }
+            uint8_t slen[4];
+            slen[0] = jpg_buf_len >> 0;
+            slen[1] = jpg_buf_len >> 8;
+            slen[2] = jpg_buf_len >> 16;
+            slen[3] = jpg_buf_len >> 24;
+            client.write(slen, 4);
+            client.write(jpg_buf, jpg_buf_len);
+        }
+        if (fb){
+            esp_camera_fb_return(fb);
+            fb = NULL;
+            jpg_buf = NULL;
+        }
+        else if (jpg_buf){
+            free(jpg_buf);
+            jpg_buf = NULL;
         }
       }
     }
@@ -125,8 +151,7 @@ void loopTask_Blink(void *pvParameters) {
   }
 }
 
-void cameraSetup() {
-  camera_config_t config;
+void camera_init() {
   config.ledc_channel = LEDC_CHANNEL_0;
   config.ledc_timer = LEDC_TIMER_0;
   config.pin_d0 = Y2_GPIO_NUM;
@@ -146,37 +171,52 @@ void cameraSetup() {
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
-  config.frame_size = FRAMESIZE_UXGA;
+  config.frame_size = FRAMESIZE_QVGA;
   config.pixel_format = PIXFORMAT_JPEG; // for streaming
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
-  config.jpeg_quality = 12;
+  config.jpeg_quality = 10;
   config.fb_count = 1;
   
-  // if PSRAM IC present, init with UXGA resolution and higher JPEG quality
-  // for larger pre-allocated frame buffer.
-  if(psramFound()){
-    config.jpeg_quality = 10;
-    config.fb_count = 2;
-    config.grab_mode = CAMERA_GRAB_LATEST;
-  } else {
-    // Limit the frame size when PSRAM is not available
-    config.frame_size = FRAMESIZE_SVGA;
-    config.fb_location = CAMERA_FB_IN_DRAM;
-  }
-
   // camera init
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
-    Serial.printf("Camera init failed with error 0x%x", err);
-    return;
+    if(err==ESP_ERR_NOT_SUPPORTED){
+      config.pixel_format = PIXFORMAT_RGB565;
+      esp_err_t err = esp_camera_init(&config);
+      if (err != ESP_OK) {
+        Serial.printf("Camera init failed with error 0x%x", err);
+        return;
+      }
+    }
   }
 
   sensor_t * s = esp_camera_sensor_get();
-  // initial sensors are flipped vertically and colors are a bit saturated
-  s->set_vflip(s, 1); // flip it back
-  s->set_brightness(s, 1); // up the brightness just a bit
-  s->set_saturation(s, 0); // lower the saturation
-
-  Serial.println("Camera configuration complete!");
+  // drop down frame size for higher initial frame rate
+  uint16_t pid = s->id.PID;
+  if(pid == OV2640_PID){
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 1);     
+  }
+  else if(pid == OV3660_PID){
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 0);     
+  }
+  else if(pid == GC2145_PID){
+    s->set_hmirror(s, 0);
+    delay(500);
+    s->set_vflip(s, 0);      
+  }
+  else if(pid == GC0308_PID){
+    s->set_hmirror(s, 0);
+    delay(500);
+    s->set_vflip(s, 0);     
+  }
+  else{
+    s->set_hmirror(s, 1);
+    s->set_vflip(s, 0);       
+  }
+  s->set_brightness(s, 1);  // Slightly increase brightness
+  s->set_saturation(s, 0);  // Reduce saturation
+  s->set_ae_level(s, -3);   // Set exposure compensation level
 }

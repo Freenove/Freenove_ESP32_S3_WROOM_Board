@@ -222,7 +222,7 @@ const char index_web[]=R"rawliteral(
   </head>
   <body>
     <p><h1>Video Streaming Demonstration</h1></p>
-    <p><img id="stream" src="" style="transform:rotate(180deg)"/></p>
+    <p><img id="stream" src="" style="transform:rotate(0deg)"/></p>
     <iframe  width=0 height=0 frameborder=0 id="myiframe" name="myiframe"></iframe>
     <p><form action="/button" method="POST" target="myiframe"><input type="submit" value="Save it to SDcard"></form></p>
   </body>
